@@ -1,3 +1,5 @@
+const { filter } = require("lodash")
+
 (() => {
     'use strict'
     const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -39,4 +41,11 @@ window.solana.on("connect", () => document.getElementById("namenft").innerText='
 
 }
 
+(() => {
+    'use strict'
+    const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    tooltipTriggerList.forEach(tooltipTriggerEl => {
+      new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  })()
 

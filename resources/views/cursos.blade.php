@@ -1,24 +1,40 @@
 @extends ('layout')
-@section ('title', 'Jobs')
+@section ('title', 'Vagas')
 @section('content')
 
 <div class="container-8">
-    <hr class="featurette-divider" style="color:transparent;">
     <div class="org-accordion">
         <div class="container">
             <hr class="featurette-divider-2" style="color:transparent;">
-            <!--divasaoFAQ!-->
             <div class="row">
+            <div class="container text-start" style="margin-left: 8px;">
+                <form action="" method="GET">
+                    <input type="text" name="query" placeholder="Pesquisar" style="width: 58%; height: 35px">
+                    <button type="submit" class="btn btn-outline-success" style="margin-bottom: 4px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
+                    <button type="submit" class="btn btn-outline-success me-md-2" style="margin-bottom: 4px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                        <a href="{{ route('cursos') }}"></a>
+                    </button>
+                </form>
+            </div>
+                <!--divasaoPosts!-->
                 <div class="col-md-8">
                     @foreach ($posts as $post)
-                    <div class="bck-owner text-start">
+                    <div class="bck-owner text-start mb-3">
                         <!--ICONE DO FOGO-->
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-fire" viewBox="0 0 16 16">
                             <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z" />
                         </svg>
                         <!--TITULO VAGA!-->
                         <a class="title-owner" href="{{ route ('posts.show', ['post' => $post->id]) }}">{{ $post->title }}</span></a>
-                        <a class="spanVar" href="{{ route ('posts.show', ['post' => $post->id]) }}">{{ $post->created_at }}</a>
+                        <!--<a class="spanVar" href="{{ route ('posts.show', ['post' => $post->id]) }}">{{ $post->created_at }}</a>-->
                         <!--INICIO ROW DE VARIAVEIS!-->
                         <div class="row" style="padding: 10px;">
                             <div class="col">
@@ -58,8 +74,12 @@
                         </div>
                     </div>
                     @endforeach
+                    <div class="container">
+                        <br>
+                        {{$posts->links()}}
+                    </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="container-9">
                         <br>
                         <a style="padding: 7px;">
@@ -74,15 +94,12 @@
                         </a>
                         <br>
                         <p class="text-start" style="font-size: 14px; padding: 10px;">
-                            Berich is a non-profit platform created by <a style="color: rgba(36,243,8,1);" href="https://www.linkedin.com/in/fernando-caldas-50641824a/" target="_blank">Fernando</a> with the intention of promoting the technological market.<br><br>
-                            The platform is still under development and will be updated based on user feedback.<br><br>
-                            Support us by following our social media.
+                            Berich é uma plataforma 100% gratuita criada com o intuito de fomentar o mercado tecnologico.<br><br>
+                            Apoie-nos seguindo nossas redes sociais.
                         </p>
                     </div>
                 </div>
             </div>
-            <br>
-            {{$posts->links()}}
         </div>
         <!--divasaoFAQ!-->
     </div>

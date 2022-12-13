@@ -9,7 +9,7 @@
     <div class="org-accordion">
         <div class="container">
     <div class="py-5 text-center resize-text">
-      <p class="title">FIND ME A JOB</p>
+      <p class="title">ME ENCONTRE UM EMPREGO</p>
       <p class="lead">
         Suas informações ficaram disponíveis apenas para recrutadores de empresas
       </p>
@@ -25,7 +25,7 @@
         <form class="needs-validation" novalidate>
           <div class="row g-3">
             <div class="col-sm-6 text-start">
-              <label for="fname" class="form-label">First name</label>
+              <label for="fname" class="form-label">Primeiro nome</label>
               @error('fname')
                 <div class="error">
                   {{$message}}
@@ -38,7 +38,7 @@
             </div>
 
             <div class="col-sm-6 text-start">
-              <label for="lname" class="form-label">Last name</label>
+              <label for="lname" class="form-label">Último nome</label>
               @error('lname')
                 <div class="error">
                   {{$message}}
@@ -51,14 +51,14 @@
             </div>
 
             <div class="col-12 text-start">
-              <label for="url" class="form-label">Linkedin</label>
+              <label for="url" class="form-label">Linkedin <span class="text-muted" style="font-size: 15px;">(Insira apenas o conteúdo após o linkedin.com/in)</span></label>
               @error('linkedin')
                 <div class="error">
                   {{$message}}
                 </div>
                 @enderror
               <div class="input-group has-validation">
-                <input type="text" class="form-control @error('linkedin') error-border @enderror" name="linkedin" value="{{ old('linkedin') }}" placeholder="URL" required>
+                <input type="text" class="form-control @error('linkedin') error-border @enderror" name="linkedin" value="{{ old('linkedin') }}" placeholder="/fernando-caldas-50641824a/" required>
               <div class="invalid-feedback">
                   Your username is required.
                 </div>
@@ -79,22 +79,22 @@
             </div>
 
             <div class="col-sm-6 text-start">
-              <label for="zip" class="form-label">Zip <span class="text-muted" style="font-size: 15px;">(Optional)</span></label>
+              <label for="zip" class="form-label">Cep <span class="text-muted" style="font-size: 15px;">(Opicional)</span></label>
               <input type="text" class="form-control" name="zip" value="{{ old('zip') }}" placeholder="">
             </div>
 
             <div class="col-sm-6 text-start">
-              <label for="twitter" class="form-label">Twitter <span class="text-muted" style="font-size: 15px;">(Optional)</span></label>
+              <label for="twitter" class="form-label">Twitter <span class="text-muted" style="font-size: 15px;">(Opicional)</span></label>
               <input type="text" class="form-control" name="twitter" value="{{ old('twitter') }}" placeholder="@you">
             </div>
 
             <div class="col-sm-6 text-start">
-              <label for="instagram" class="form-label">Instagram <span class="text-muted" style="font-size: 15px;">(Optional)</span></label>
+              <label for="instagram" class="form-label">Instagram <span class="text-muted" style="font-size: 15px;">(Opicional)</span></label>
               <input type="text" class="form-control" name="instagram" value="{{ old('instagram') }}" placeholder="@you">
             </div>
 
             <div class="col-md-6 text-start">
-              <label for="country" class="form-label">Country</label>
+              <label for="country" class="form-label">País</label>
               @error('country')
                 <div class="error">
                   {{$message}}
@@ -107,7 +107,7 @@
             </div>
 
             <div class="col-md-6 text-start">
-              <label for="state" class="form-label">State</label>
+              <label for="state" class="form-label">Estado</label>
               @error('state')
                 <div class="error">
                   {{$message}}
@@ -120,7 +120,7 @@
             </div>
 
             <div class="col-md-6 text-start">
-              <label for="city" class="form-label">City</label>
+              <label for="city" class="form-label">Cidade</label>
               @error('city')
                 <div class="error">
                   {{$message}}
@@ -134,7 +134,7 @@
           </div>
 
           <div class="col-12 text-start">
-              <label for="job" class="form-label">Desired Job</label>
+              <label for="job" class="form-label">Emprego desejado</label>
               @error('job')
                 <div class="error">
                   {{$message}}
@@ -149,11 +149,11 @@
             </div>
 
             <div class="col-12 text-start">
-              <label for="description" class="form-label">Note <span class="text-muted" style="font-size: 15px;">(Describe yourself and tell us your skills)</span></label>
+              <label for="description" class="form-label">Descrição <span class="text-muted" style="font-size: 15px;">(Fale um pouco de você e suas habilidades)</span></label>
               <textarea name="description" style="height: 200px;">{{ old('description') }}</textarea>
             </div>
           <hr class="my-4">
-          <button class="button-home" style="width: 100%;" type="submit" href="">POST</button>
+          <button class="button-home" style="width: 100%;" type="submit" href="">Enviar</button>
           
                 </div>
             </div>

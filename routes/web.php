@@ -19,17 +19,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/cursos', [HomeController::class, 'cursos'])->name('cursos');
-Route::get('/freeagents', [HomeController::class, 'freeagents'])->name('freeagents')->middleware('auth');
+Route::get('/vagas', [HomeController::class, 'cursos'])->name('cursos');
+Route::resource('posts', PostController::class)->except(['index']);
 
-Route::get('/curriculums', [HomeController::class, 'curriculum'])->name('curriculum');
 
-Route::resource('curriculums', CurriculumController::class)->except(['index']);
+Route::middleware(['client'])->group(function () { 
+    Route::get('/curriculums', [HomeController::class, 'curriculum'])->name('curriculum');
+    Route::get('/faleconosco', [HomeController::class, 'contactus'])->name('contactus');
+    Route::get('/cadastrorecrutador', [HomeController::class, 'recruiter'])->name('recruiter');
+    Route::resource('curriculums', CurriculumController::class)->except(['index']);
+});
 
-Route::resource('posts', PostController::class)->except(['index'])->middleware('auth');
+Route::middleware(['recruiter'])->group(function () { 
+    Route::get('/freeagents', [HomeController::class, 'freeagents'])->name('freeagents');
+    Route::get('/vagas/create', [HomeController::class, 'createJob'])->name('createJob');
+});
 
-Route::match(['get', 'post'], '/register', [AuthController::class, 'register'])->name('register');
+Route::middleware(['admin'])->group(function () {
+    
+});
 
+Route::match (['get', 'post'], '/register', [AuthController::class, 'register'])->name('register');
 Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])->name('login');
-
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');

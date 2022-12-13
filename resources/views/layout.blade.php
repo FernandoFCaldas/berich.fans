@@ -28,10 +28,16 @@
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Início</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('cursos') }}">Vagas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('curriculum') }}">Cadastrar Curriculo</a></li>
                         @auth
-                        <li class="nav-item"><a class="nav-link" href="{{ route('freeagents') }}">Free Agents</a></li>
+                        @if (Auth::user()->recruiter == '1' OR Auth::user()->admin == '1')
+                        <li class="nav-item"><a class="nav-link" href="{{ route('freeagents') }}">Currículos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('posts.create') }}">Postar Vaga</a></li>
+                        @endif
+                        @if (Auth::user()->client == '1' OR Auth::user()->admin == '1')
+                        <li class="nav-item"><a class="nav-link" href="{{ route('curriculum') }}">Cadastrar Curriculo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('recruiter') }}">Cadastro Recrutador</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('contactus') }}">Fale Conosco</a></li>
+                        @endif
                     </ul>
 
                     </ul>

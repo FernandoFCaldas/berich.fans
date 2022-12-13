@@ -1,16 +1,15 @@
 @extends('layout')
 
-@section('title', 'Register')
+@section('title', 'Login')
 
 @section('content')
 
 <form method="POST" action="{{ route('login') }}">
   @csrf
   <div class="container-7">
-    <div class="modal-container-teste">
       <div class="modal-teste">
-        <p class="berich-sub-title text-center" style="font-size: 20px;">Welcome to Berich</p>
-        <hr class="my-4">
+        <p class="berich-sub-title text-center" style="font-size: 20px;">Bem-vindo a Berich</p>
+        <hr class="my-2">
         <!--Email-->
         <label for="email" class="form-label">Email:</label>
         @error('email')
@@ -25,7 +24,7 @@
           </div>
         </div>
         <!--Senha-->
-        <label for="password" class="form-label">Password:</label>
+        <label for="password" class="form-label">Senha:</label>
         @error('password')
         <div class="error">
           {{$message}}
@@ -37,13 +36,12 @@
             É necessário inserir uma senha.
           </div>
         </div>
-        <p class="berich-sub-title text-center">Not registered yet? <a style="color: rgba(36,243,8,1); text-decoration:underline;" href="{{ route('register') }}">Register your company here</a></p>
+        <br>
+        <p class="berich-sub-title text-center">Ainda não é registrado? <a style="color: rgba(36,243,8,1); text-decoration:underline;" href="{{ route('register') }}">Registre-se aqui!</a></p>
         <!--Button-->
         <hr class="my-4">
         <button class="button-home" style="width: 100%;" type="submit" href="#">Login</button>
-
       </div>
-    </div>
   </div>
 
 </form>

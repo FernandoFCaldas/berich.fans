@@ -33,7 +33,7 @@ class PostController extends Controller
             'salaryExpectation' => 'required',
             'location' => 'required',
             'contract' => 'required',
-            'description' => ['required', 'min:2', 'max:1000'],
+            'description' => ['required', 'min:2', 'max:5000'],
           ]);
 
           $post = new Post();
@@ -49,7 +49,7 @@ class PostController extends Controller
         
             return redirect()
             ->route('posts.create')
-            ->with('success', 'Parabéns! Sua nova aula foi postada!');
+            ->with('success', 'Parabéns! Sua vaga foi postada!');
     }
 
     /**
@@ -98,4 +98,5 @@ class PostController extends Controller
     {
         //
     }
+
 }

@@ -36,7 +36,7 @@
                 <!--Company-->
                 <label for="company" class="form-label">Empresa</label>
                 <select class="form-select" name="company" id="company">
-                  <option selected value="company">Empresa</option>
+                  <option selected value="{{ Auth::user()->company }}">{{ Auth::user()->company }}</option>
                 </select>
                 <!--Salary Expectation-->
                 <label for="salaryExpectation" class="form-label">Salario</label>

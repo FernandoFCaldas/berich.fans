@@ -138,9 +138,9 @@ h5 {
   max-height: auto;
   max-width: auto;
   padding-bottom: 10rem;
-  background-image: linear-gradient( 145.9deg,  rgb(17, 17, 17) 5.5%, rgba(52, 53, 52, 0.74) 41.5%, rgb(14, 14, 14) 42.5%, rgb(51, 51, 51) 98.4% );
-  /*background-image: linear-gradient( 270deg,  rgb(56, 56, 56) 5.5%, rgba(212, 212, 212, 0.74) 35.1%, rgb(14, 14, 14) 36.1%, rgb(51, 51, 51) 98.4% );*/
-
+  background-image: url("/css/bck-home.png");
+  background-position: right top;
+  /*background-image: linear-gradient( 145.9deg,  rgb(17, 17, 17) 5.5%, rgba(52, 53, 52, 0.74) 41.5%, rgb(14, 14, 14) 42.5%, rgb(51, 51, 51) 98.4% );*/
 }
 
 .container-4 {
@@ -180,7 +180,7 @@ h5 {
   display: flex;
   justify-content: center;
   padding-bottom: 15rem;
-  background-image: linear-gradient( 109.6deg,  rgba(0,0,0,0.93) 11.2%, rgba(63,61,61,1) 78.9% );
+  background-image: url("/css/bck-login-reg.png");
 
 }
 
@@ -199,6 +199,15 @@ h5 {
   background-color: transparent;
   height: 100%;
   max-height: 250px;
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid rgba(36,243,8,1);
+}
+
+.container-10 {
+  background-color: transparent;
+  height: 100%;
+  max-height: 200px;
   width: 100%;
   border-radius: 10px;
   border: 2px solid rgba(36,243,8,1);
@@ -507,6 +516,34 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+  .button-home-2 {
+    background-color:transparent;
+    text-decoration: none;
+    padding: 12px 20px;
+    width: 200px;
+    color: white;
+    border: 2px solid rgba(36,243,8,1);
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 18px 2px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-home-2:hover {
+    background-color: rgba(36,243,8,1);
+    text-decoration: none;
+    color: #222322;
+    padding: 12px 20px;
+    width: 200px;
+    border: 2px solid rgba(36,243,8,1);
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 18px 2px;
+    justify-content: center;
+    align-items: center;
+  }
   
   .delete {
     background-color: #fa0808;
@@ -577,33 +614,11 @@ body {
     font-weight: 600;
   }
 
-
+.envolv {
+  padding-bottom: 50px;
+}
 
 /* INICIO DO ACCORDION */
-
-.faq {
-  width: 100%;
-  margin-top: 2rem;
-  align-items: center;
-}
-
-.question {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-image: linear-gradient(to right, rgb(51, 51, 51), rgb(63, 63, 63), rgb(51, 51, 51) );
-  box-shadow: 0.1em 0.1em 0.2em black;
-}
-
-
-
-.question h2 {
-  font-size: 1.8rem;
-  padding-left: 1rem;
-  padding-top: 3px;
-  color: white;
-}
 
 .bi-chevron-down {
   margin-right: 20px;
@@ -617,17 +632,9 @@ body {
   color: white;
 }
 
-.title-faq {
-  text-align: start;
-  margin: 1rem 0;
-  font-size: 29px;
-  letter-spacing: 2px;
-  color: rgba(36,243,8,1);
-}
-
 .title-owner {
   font-size: 20px;
-  text-size-adjust: 10px;
+  text-size-adjust: 20px;
   color:white;
   letter-spacing: 1px;
   text-decoration: none;
@@ -640,13 +647,13 @@ body {
     width: 100%;
   }
   .title-owner {
+    font-size: 20px;
+  }
+  .spanVar {
     font-size: 15px;
   }
   .title-classic {
     font-size: 20px;
-  }
-  .question{
-    font-size: 5px;
   }
   .g-recaptcha{
     margin-left: 0;
@@ -669,13 +676,13 @@ body {
   .berich-title {
     font-size: 20px;
   }
+  .spanVar {
+    font-size: 12px;
+  }
   .title-owner {
-    font-size: 15px;
+    font-size: 20px;
   }
   .title-classic {
-    font-size: 5px;
-  }
-  .question{
     font-size: 5px;
   }
   .resize-text p {
@@ -686,13 +693,6 @@ body {
   }
   .bi-3 {
     opacity: 0;
-  }
-  .title-faq {
-    font-size: 18px;
-  }
-
-  .faq h2{
-    font-size: 16px;
   }
   .video-title {
     width: 100%;
@@ -709,12 +709,12 @@ body {
     font-size: 20px;
   }
   .title-owner {
+    font-size: 20px;
+  }
+  .spanVar {
     font-size: 12px;
   }
   .title-classic {
-    font-size: 5px;
-  }
-  .question{
     font-size: 5px;
   }
   .resize-text p {
@@ -731,12 +731,34 @@ body {
 }
 
 .bck-owner {
-  width: 90%;
+  width: 100%;
   border-radius: 10px;
   border: 2px solid rgba(36,243,8,1);
   background-image: transparent;
   margin: 0.4rem;
-  padding: 0.1rem;
+  padding: 0.5rem;
+  padding-top: 0.4rem;
+}
+
+.show-posts {
+  background-color: transparent;
+  height: 100%;
+  max-height: 700px;
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid rgba(36,243,8,1);
+  padding: 0.5rem;
+  padding-top: 0.4rem;
+}
+
+.show-description{
+  background-color: transparent;
+  height: 800px;
+  max-height: 100%;
+  width: 90%;
+  border-radius: 10px;
+  border: 2px solid rgba(36,243,8,1);
+  padding-left: 0.5rem;
   padding-top: 0.4rem;
 }
 
@@ -762,6 +784,7 @@ body {
   font-size: 1.4rem;
   line-height: 1.6;
   color: white;
+  text-overflow:clip;
 }
 
 

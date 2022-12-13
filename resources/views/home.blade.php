@@ -13,10 +13,10 @@
       <img src="/css/100.gif" alt="" width="200" height="199" /><br>
       <hr class="featurette-divider-2" style="color:transparent;">
       <h1 class="berich-title">B E R I C H</h1>
-      <p class="berich-sub-title">Connecting recruiters with future technology collaborators.</p>
+      <p class="berich-sub-title">Somos uma plataforma 100% gratuita que conecta recrutadores com futuros colaboradores.</p>
       <hr class="featurette-divider-2" style="color:transparent;">
-      <a class="button-home" type="button" href="{{ route('cursos') }}" style="text-decoration: none;">Jobs</a>
-      <a class="button-home" type="button" href="{{ route('freeagents') }}" style="text-decoration: none;">Free Agents</a>
+      <a class="button-home-2" type="button" href="{{ route('cursos') }}">Vagas</a>
+      <a class="button-home-2" type="button" href="{{ route('register') }}">Registre-se</a>
     </div>
   </div>
 </div>

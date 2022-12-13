@@ -15,7 +15,7 @@
         </div>
         @endif
         <!--Titulo-->
-        <label for="name" class="form-label">Nome do Colaborador:</label>
+        <label for="name" class="form-label">Nome:</label>
         @error('name')
         <div class="error">
           {{$message}}
@@ -53,7 +53,8 @@
             É necessário inserir uma senha.
           </div>
         </div>
-        <p class="berich-sub-title text-center">If you already have an account <a style="color: rgba(36,243,8,1); text-decoration:underline;" href="{{ route('login')}}">Login</a></p>
+        <br>
+        <p class="berich-sub-title text-center">Se você já tem uma conta, faça o <a style="color: rgba(36,243,8,1); text-decoration:underline;" href="{{ route('login')}}">Login</a></p>
         <br>
         <div class="g-recaptcha" data-sitekey="6LfKKWIjAAAAAI4EeR27iOd2fmksvdqsZGq3dBlR"></div>
         <!--Button-->

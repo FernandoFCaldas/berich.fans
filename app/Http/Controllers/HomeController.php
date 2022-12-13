@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Arr;
 use App\Models\Curriculum;
 use Illuminate\Http\Request;
 use App\Models\Post;
@@ -13,9 +12,29 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function freeagents() {
-        $curriculums = Curriculum::latest('id')->paginate(10);
-        return view('freeagents', ['curriculums' => $curriculums]);
+    public function contactus() {
+
+        return view('formMail.contactus');
+    }
+
+    public function recruiter() {
+
+        return view('formRecruiter.recruiter');
+    }
+
+    public function freeagents(Request $request) {
+        $curriculums = Curriculum::latest('id');
+
+        if ($request->has("query")) {
+            $curriculums->where('fname', 'like', '%' . $request->input("query") . '%')
+                ->orWhere('lname', 'like', '%' . $request->input("query") . '%')
+                ->orWhere('city', 'like', '%' . $request->input("query") . '%')
+                ->orWhere('state', 'like', '%' . $request->input("query") . '%')
+                ->orWhere('country', 'like', '%' . $request->input("query") . '%')
+                ->orWhere('job', 'like', '%' . $request->input("query") . '%');
+        }
+
+        return view('freeagents', ['curriculums' => $curriculums->paginate(10)]);
     }
 
     public function curriculum() {
@@ -23,8 +42,22 @@ class HomeController extends Controller
         return view('curriculums.curriculum');
     }
 
-    public function cursos() {
-        $posts = Post::latest('id')->paginate(10);
-        return view('cursos', ['posts' => $posts]);
+    public function createJob(){
+        return view('posts.create');
+    }
+
+    public function cursos(Request $request) {
+
+        $posts = Post::latest('id');
+
+        if ($request->has("query")) {
+            $posts->where('title', 'like', '%' . $request->input("query") . '%')
+                ->orWhere('company', 'like', '%' . $request->input("query") . '%')
+                ->orWhere('location', 'like', '%' . $request->input("query") . '%')
+                ->orWhere('contract', 'like', '%' . $request->input("query") . '%')
+                ->orWhere('salaryExpectation', 'like', '%' . $request->input("query") . '%');
+        }
+
+        return view('cursos', ['posts' => $posts->paginate(10)]);
     }
 }

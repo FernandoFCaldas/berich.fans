@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('emailforcontact');
-            $table->string('zip');
-            $table->string('twitter');
-            $table->string('instagram');
+            $table->string('zip')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
             $table->string('country');
             $table->string('state');
             $table->string('city');

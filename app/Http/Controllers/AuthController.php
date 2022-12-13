@@ -25,10 +25,7 @@ class AuthController extends Controller
         ]);
 
         return redirect()
-        ->route('register')
-        ->with('success', 'Colaborador cadastrado com sucesso!');
-
-
+            ->route('login');
     }
     public function login(Request $request) {
         if($request->isMethod('get')) {
