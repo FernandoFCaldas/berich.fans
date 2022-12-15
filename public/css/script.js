@@ -1,4 +1,3 @@
-const { filter } = require("lodash")
 
 (() => {
     'use strict'
@@ -8,44 +7,30 @@ const { filter } = require("lodash")
     })
   })()
 
+/* filter */
 
-const faqs = document.querySelectorAll(".faq");
+const INPUT_SEARCH = document.getElementById('input-search');
+const DIVS_POSTS = document.getElementById('divs-posts');
 
-faqs.forEach(faq => {
-    faq.addEventListener("click", () => {
-        faq.classList.toggle("active")
-    });
+INPUT_SEARCH.addEventListener('keyup', () => {
+    let expressao = INPUT_SEARCH.value.toLowerCase();
+
+    let linhas = DIVS_POSTS.getElementsByClassName('bck-owner');
+
+    for (let posicao in linhas) {
+      console.log(linhas);
+      if (true === isNaN(posicao)){
+        continue;
+      }
+
+      let conteudoDaLinha = linhas[posicao].innerHTML.toLowerCase();
+
+      if(true === conteudoDaLinha.includes(expressao)){
+        linhas[posicao].style.display = '';
+      } else {
+        linhas[posicao].style.display = 'none';
+      }
+    }
 });
 
-const modal  = document.querySelector('.modal-container-teste')
-
-
-
-var wallet;
-function connectWallet(){
-
-    (async() => {
-    try {
-    const resp = await window.solana.connect();
-    wallet = resp;
-    // 26qv4GCcx98RihuK3c4T6ozB3J7L6VwCuFVc7Ta2A3Uo 
-} catch (err) {
-    // { code: 4001, message: 'User rejected the request.' }
-}
-})();
-
-window.solana.on("connect", () => document.getElementById("status").innerText=window.solana.publicKey);
-window.solana.on("connect", () => document.getElementById("numbernft").innerText='#12');
-window.solana.on("connect", () => document.getElementById("namenft").innerText='Berich Classic White');
-//window.solana.on("connect", () => document.getElementById("wallet").value = window.solana.publicKey);
-
-}
-
-(() => {
-    'use strict'
-    const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    tooltipTriggerList.forEach(tooltipTriggerEl => {
-      new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-  })()
-
+/* end filter */

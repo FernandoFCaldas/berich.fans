@@ -152,6 +152,8 @@
               <label for="description" class="form-label">Descrição <span class="text-muted" style="font-size: 15px;">(Fale um pouco de você e suas habilidades)</span></label>
               <textarea name="description" style="height: 200px;">{{ old('description') }}</textarea>
             </div>
+            <br>
+        <div class="g-recaptcha" data-sitekey="6LfKKWIjAAAAAI4EeR27iOd2fmksvdqsZGq3dBlR"></div>
           <hr class="my-4">
           <button class="button-home" style="width: 100%;" type="submit" href="">Enviar</button>
           

@@ -4,11 +4,17 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('register') }}">
-  @csrf
-  <div class="container-7">
-    <div class="modal-container-teste">
-      <div class="modal-teste">
+<div class="container-7">
+  <div class="contact1">
+    <div class="container-contact1">
+      <div class="contact1-pic js-tilt" data-tilt>
+        <img src="css/phoneberich.png" alt="IMG">
+      </div>
+      <form class="contact1-form" method="POST" action="{{ route('register') }}">
+        @csrf
+        <span class="contact1-form-title">
+          Bem-vindo à Berich
+        </span>
         @if (session('success'))
         <div class="flash-success">
           {{ session('success')}}
@@ -21,8 +27,9 @@
           {{$message}}
         </div>
         @enderror
-        <div class="input-group has-validation">
-          <input type="text" class="form-control @error('name') error-border @enderror" name="name" value="{{ old('name') }}" required>
+        <div class="wrap-input1 has-validation">
+          <input type="text" class="input1 @error('name') error-border @enderror" name="name" value="{{ old('name') }}" required>
+          <span class="shadow-input1"></span>
           <div class="invalid-feedback">
             É necessário inserir um nome.
           </div>
@@ -34,8 +41,9 @@
           {{$message}}
         </div>
         @enderror
-        <div class="input-group has-validation">
-          <input type="text" class="form-control @error('email') error-border @enderror" name="email" value="{{ old('email') }}" required>
+        <div class="wrap-input1 has-validation">
+          <input type="text" class="input1 @error('email') error-border @enderror" name="email" value="{{ old('email') }}" required>
+          <span class="shadow-input1"></span>
           <div class="invalid-feedback">
             É necessário inserir um email.
           </div>
@@ -47,8 +55,9 @@
           {{$message}}
         </div>
         @enderror
-        <div class="input-group has-validation">
-          <input type="password" class="form-control @error('password') error-border @enderror" id="password" name="password" required>
+        <div class="wrap-input1 has-validation">
+          <input type="password" class="input1 @error('password') error-border @enderror" id="password" name="password" required>
+          <span class="shadow-input1"></span>
           <div class="invalid-feedback">
             É necessário inserir uma senha.
           </div>
@@ -56,15 +65,17 @@
         <br>
         <p class="berich-sub-title text-center">Se você já tem uma conta, faça o <a style="color: rgba(36,243,8,1); text-decoration:underline;" href="{{ route('login')}}">Login</a></p>
         <br>
-        <div class="g-recaptcha" data-sitekey="6LfKKWIjAAAAAI4EeR27iOd2fmksvdqsZGq3dBlR"></div>
-        <!--Button-->
-        <hr class="my-3">
-        <button class="button-home" style="width: 100%;" type="submit" href="#">Register</button>
-
-      </div>
+        <div class="container-contact1-form-btn">
+          <button class="contact1-form-btn"  href="#">
+            <span>
+              Registrar
+            </span>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
-</form>
 <script src="css/script.js"></script>
 @endsection

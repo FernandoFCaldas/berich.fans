@@ -22,19 +22,11 @@ class HomeController extends Controller
         return view('formRecruiter.recruiter');
     }
 
-    public function freeagents(Request $request) {
-        $curriculums = Curriculum::latest('id');
+    public function freeagents() {
+        
+        $curriculums = Curriculum::latest('id')->paginate(10);
 
-        if ($request->has("query")) {
-            $curriculums->where('fname', 'like', '%' . $request->input("query") . '%')
-                ->orWhere('lname', 'like', '%' . $request->input("query") . '%')
-                ->orWhere('city', 'like', '%' . $request->input("query") . '%')
-                ->orWhere('state', 'like', '%' . $request->input("query") . '%')
-                ->orWhere('country', 'like', '%' . $request->input("query") . '%')
-                ->orWhere('job', 'like', '%' . $request->input("query") . '%');
-        }
-
-        return view('freeagents', ['curriculums' => $curriculums->paginate(10)]);
+        return view('freeagents', ['curriculums' => $curriculums]);
     }
 
     public function curriculum() {
@@ -46,18 +38,10 @@ class HomeController extends Controller
         return view('posts.create');
     }
 
-    public function cursos(Request $request) {
+    public function cursos() {
 
-        $posts = Post::latest('id');
+        $posts = Post::latest('id')->paginate(10);
 
-        if ($request->has("query")) {
-            $posts->where('title', 'like', '%' . $request->input("query") . '%')
-                ->orWhere('company', 'like', '%' . $request->input("query") . '%')
-                ->orWhere('location', 'like', '%' . $request->input("query") . '%')
-                ->orWhere('contract', 'like', '%' . $request->input("query") . '%')
-                ->orWhere('salaryExpectation', 'like', '%' . $request->input("query") . '%');
-        }
-
-        return view('cursos', ['posts' => $posts->paginate(10)]);
+        return view('cursos', ['posts' => $posts]);
     }
 }
